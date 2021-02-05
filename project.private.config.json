@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "pages/liwei/gpsDevice/gpsDevice",
+          "pathName": "pages/liwei/gpsDevice/gpsDevice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/liwei/login/login",
+          "pathName": "pages/liwei/login/login",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

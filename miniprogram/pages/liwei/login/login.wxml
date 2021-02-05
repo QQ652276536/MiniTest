@@ -1,0 +1,13 @@
+<!--miniprogram/pages/liwei/login/login.wxml-->
+<view class="login-container">
+
+  <View class="title">李伟的微信小程序</View>
+  <view class="login-box">
+    <label>用户名</label><input />
+    <label>密码</label><input />
+    <button class="login-btn" bindtap="login">立即登录</button>
+    <view class="login-line">第三方登录</view>
+    <button class="login-btn-three" bindtap="">微信登录</button>
+  </view>
+
+</view>

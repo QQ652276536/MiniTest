@@ -1,0 +1,42 @@
+/* miniprogram/pages/liwei/gpsDevice/gpsDevice.wxss */
+page {
+  height: 100%;
+  background-color: whitesmoke;
+  color: darkgrey;
+}
+
+.cell-bg {
+  display: flex;
+  width: 100%;
+  height: 120rpx;
+  border-bottom: 1px solid white;
+}
+
+.left-view {
+  /*background-color: blue;*/
+  width: 150rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.img {
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align: middle;
+}
+
+.right-view {
+  /*background-color: red;*/
+  /*横向排列begin*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.text {
+  text-align: center;
+  margin: 20rpx;
+  /*父元素display:flex+子元素align-self:center实现垂直距中*/
+  align-self: center;
+  font-size: 35rpx;
+}

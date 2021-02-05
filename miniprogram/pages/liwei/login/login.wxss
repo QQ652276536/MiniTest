@@ -1,0 +1,55 @@
+/* miniprogram/pages/liwei/login/login.wxss */
+
+page {
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.login-container {
+  padding: 0 10%;
+  height: 100%;
+}
+
+.title {
+  font-size: large;
+  text-align: center;
+  padding-top: 10%;
+  color: darkgray;
+}
+
+.login-box {
+  margin-top: 10%;
+  padding: 10% 10%;
+  background-color: darkgray;
+  border-radius: 5px;
+}
+
+.login-box>label {
+  color: white;
+}
+
+.login-line {
+  margin: 10%;
+  text-align: center;
+  color: white;
+}
+
+.login-box>input {
+  margin: 5% 0 8% 0;
+  border-bottom: 1rpx solid white;
+}
+
+.login-btn {
+  width: 100% !important;
+  margin-top: 10%;
+  background-color: white;
+  color: darkgray;
+  font-weight: normal;
+}
+
+.login-btn-three {
+  width: 100% !important;
+  background-color: green;
+  color: white;
+  font-weight: normal;
+}
