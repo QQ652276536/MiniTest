@@ -47,7 +47,7 @@ page {
   font-weight: normal;
 }
 
-.login-btn-three {
+.login-btn-third {
   width: 100% !important;
   background-color: green;
   color: white;

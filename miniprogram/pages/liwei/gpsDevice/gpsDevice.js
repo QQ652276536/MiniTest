@@ -93,30 +93,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    var _this = this;
-    wx.request({
-      url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
-      header: { 'content-type': 'application/json' },
-      method: 'POST',
-      timeout: 10 * 1000,
-      success: (result) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
-        console.log('设备列表：');
-        console.log(result.data);
-        _this.setData({
-          list_device: JSON.stringify(result.data)
-        })
-      },
-      fail: (res) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
-      },
-      complete: (res) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
-      },
-    })
+    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh();
   },
 
   /**

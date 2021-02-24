@@ -2,11 +2,20 @@
 Page({
 
   /**
-   * 登录按钮
+   * 登录
    */
   login: function () {
     wx.navigateTo({
       url: '../../index/index',
+    })
+  },
+
+  /**
+   * 微信登录
+   */
+  third_login: function () {
+    wx.navigateTo({
+      url: '../../liwei/gpsDevice/gpsDevice',
     })
   },
 

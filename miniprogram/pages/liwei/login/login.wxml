@@ -7,7 +7,7 @@
     <label>密码</label><input />
     <button class="login-btn" bindtap="login">立即登录</button>
     <view class="login-line">第三方登录</view>
-    <button class="login-btn-three" bindtap="">微信登录</button>
+    <button class="login-btn-third" bindtap="third_login">微信登录</button>
   </view>
 
 </view>

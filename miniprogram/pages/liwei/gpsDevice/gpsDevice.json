@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "设备列表"
+  "navigationBarTitleText": "设备列表",
+  "开启下拉刷新": "【注释】",
+  "enablePullDownRefresh": true,
+  "下拉刷新时顶部的背景色": "【注释】",
+  "backgroundColorTop": "#A9A9A9"
 }
