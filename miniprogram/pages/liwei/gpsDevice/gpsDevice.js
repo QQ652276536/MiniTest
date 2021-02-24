@@ -1,72 +1,15 @@
 // miniprogram/pages/liwei/gpsDevice/gpsDevice.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    dataArr: [
-      {
-        mac: 'text1',
-        state: '正常'
-      },
-      {
-        mac: '111',
-        state: '异常'
-      },
-      {
-        mac: '333',
-        state: '正常'
-      },
-      {
-        mac: '555',
-        state: '正常'
-      },
-      {
-        mac: '777',
-        state: '异常'
-      },
-      {
-        mac: '999',
-        state: '正常'
-      },
-      {
-        mac: 'xxx',
-        state: '正常'
-      },
-      {
-        mac: 'text2',
-        state: '异常'
-      },
-      {
-        mac: 'text2',
-        state: '正常'
-      },
-      {
-        mac: 'text3',
-        state: '异常'
-      },
-      {
-        mac: 'text3',
-        state: '330.9'
-      },
-      {
-        mac: 'text3',
-        state: '330.9'
-      },
-      {
-        mac: 'text3',
-        state: '异常'
-      },
-    ]
+    list_device: []
   },
 
   onSuccess: function (res) { //onSuccess回调
     wx.hideLoading();
     console.log(res);
 
-    if (res.stateCode != 100) {
-
+    if (res.locCode != 100) {
       console.log(res.message);
       this.show({
         iconToast: '', // 对：icon-dui, 错：icon-cuo,警告：icon-warning
@@ -74,7 +17,7 @@ Page({
         textToast: res.message,
         duration: 100,
       })
-      if (res.stateCode == 110) {
+      if (res.locCode == 110) {
         wx.redirectTo({
         })
       }
@@ -92,7 +35,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this = this;
+    wx.request({
+      url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      timeout: 10 * 1000,
+      success: (result) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        console.log('设备列表：');
+        console.log(result.data);
+        _this.setData({
+          list_device: result.data
+        })
+      },
+      fail: (res) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      },
+      complete: (res) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      },
+    })
   },
 
   /**
@@ -127,20 +93,42 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var _this = this;
+    wx.request({
+      url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      timeout: 10 * 1000,
+      success: (result) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+        console.log('设备列表：');
+        console.log(result.data);
+        _this.setData({
+          list_device: JSON.stringify(result.data)
+        })
+      },
+      fail: (res) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      },
+      complete: (res) => {
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
+      },
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log('用户分享......');
   }
 })

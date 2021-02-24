@@ -1,12 +1,13 @@
 <!--miniprogram/pages/liwei/gpsDevice/gpsDevice.wxml-->
-<view class="cell-bg" wx:for="{{dataArr}}" wx:key="index">
+<view class="cell-bg" wx:for="{{list_device}}" wx:key="index">
 
-  <view class="left-view">
-    <image class="img" src="../../../images/loc_icon.png" />
-  </view>
-  <view class="right-view">
-    <view class="text">{{item.mac}}</view>
-    <view class="text">{{item.state}}</view>
-  </view>
+    <view class="left-view">
+      <image class="img" src="../../../images/loc_icon.png" />
+    </view>
+    <view class="right-view">
+      <view class="text1">{{item.name}}</view>
+      <view class="text2">{{item.id}}</view>
+      <view class="text3">{{item.mac}}</view>
+    </view>
 
 </view>

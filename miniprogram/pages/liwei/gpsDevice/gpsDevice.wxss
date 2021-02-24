@@ -33,7 +33,26 @@ page {
   justify-content: center;
 }
 
-.text {
+.text1 {
+  width: 140rpx;
+  text-align: center;
+  margin: 20rpx;
+  /*父元素display:flex+子元素align-self:center实现垂直距中*/
+  align-self: center;
+  font-size: 35rpx;
+}
+
+.text2 {
+  width: 200rpx;
+  text-align: center;
+  margin: 20rpx;
+  /*父元素display:flex+子元素align-self:center实现垂直距中*/
+  align-self: center;
+  font-size: 35rpx;
+}
+
+.text3 {
+  width: 200rpx;
   text-align: center;
   margin: 20rpx;
   /*父元素display:flex+子元素align-self:center实现垂直距中*/
