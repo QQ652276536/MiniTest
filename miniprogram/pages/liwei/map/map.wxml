@@ -1,2 +1,3 @@
 <!--miniprogram/pages/liwei/map.wxml-->
-<text>miniprogram/pages/liwei/map.wxml</text>
+<map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}" wx:if="{{dome}}">
+</map>

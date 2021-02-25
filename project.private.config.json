@@ -27,6 +27,12 @@
         {
           "name": "pages/liwei/login/login",
           "pathName": "pages/liwei/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/liwei/map/map",
+          "pathName": "pages/liwei/map/map",
           "scene": null
         }
       ]

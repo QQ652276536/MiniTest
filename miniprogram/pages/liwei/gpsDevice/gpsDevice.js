@@ -1,4 +1,5 @@
 // miniprogram/pages/liwei/gpsDevice/gpsDevice.js
+
 Page({
 
   data: {
@@ -63,7 +64,7 @@ Page({
    * 
    * @param {} options 
    */
-  ItemClick: function (options) {
+  ItemClick(options) {
     var $data = options.currentTarget.dataset;
     var mac = $data.bean.mac;
     console.log("MAC地址：" + mac);
@@ -75,7 +76,7 @@ Page({
   /**
    * 查询设备列表
    */
-  QueryDeviceList: function () {
+  QueryDeviceList() {
     wx.request({
       url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
       header: { 'content-type': 'application/json' },
@@ -99,7 +100,7 @@ Page({
   /**
    * 结束下拉刷新
    */
-  EndRefresh: function () {
+  EndRefresh() {
     wx.hideNavigationBarLoading();
     wx.stopPullDownRefresh();
   },
@@ -160,4 +161,5 @@ Page({
   onShareAppMessage: function () {
     console.log('用户分享......');
   }
+
 })

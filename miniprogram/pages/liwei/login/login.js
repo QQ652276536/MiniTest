@@ -1,4 +1,5 @@
 // miniprogram/pages/liwei/login/login.js
+
 Page({
 
   /**
@@ -83,4 +84,5 @@ Page({
   onShareAppMessage: function () {
 
   }
+
 })
