@@ -34,14 +34,15 @@ Page({
           longitude: result.longitude,
           latitude: result.latitude,
           iconPath: "../../liwei/map/mark.png",
+          //自定义气泡
           callout: {
             content: "你的位置\n......",
-            color: "#333333",
-            fontSize: 13,
+            color: "#FFFFFF",
+            fontSize: 14,
             borderRadius: 10,
             bgColor: "#FF0000",
             textAlign: "center" ,
-            padding: 10,
+            padding: 5,
             display: 'ALWAYS'
           }
         }]
