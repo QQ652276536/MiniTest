@@ -5,60 +5,43 @@ Page({
     list_device: []
   },
 
-  onSuccess: function (res) { //onSuccess回调
-    wx.hideLoading();
-    console.log(res);
-
-    if (res.locCode != 100) {
-      console.log(res.message);
-      this.show({
-        iconToast: '', // 对：icon-dui, 错：icon-cuo,警告：icon-warning
-        imageToast: '',
-        textToast: res.message,
-        duration: 100,
-      })
-      if (res.locCode == 110) {
-        wx.redirectTo({
-        })
-      }
-    } else {
-      this.setData({
-        items: res.data.ActivityProduct, //请求结果数据
-        activity: res.data.activity,
-        points: res.data.Points
-      })
-    }
-
-  },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 查询设备列表
    */
-  onLoad: function (options) {
-    var _this = this;
+  QueryDeviceList: function () {
     wx.request({
       url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
       header: { 'content-type': 'application/json' },
       method: 'POST',
       timeout: 10 * 1000,
       success: (result) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
         console.log('设备列表：');
         console.log(result.data);
-        _this.setData({
+        this.setData({
           list_device: result.data
         })
+        this.EndRefresh();
       },
       fail: (res) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
       },
       complete: (res) => {
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
       },
     })
+  },
+
+  /**
+   * 结束下拉刷新
+   */
+  EndRefresh: function () {
+    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh();
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.QueryDeviceList();
   },
 
   /**
@@ -93,14 +76,15 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    wx.hideNavigationBarLoading();
-    wx.stopPullDownRefresh();
+    this.QueryDeviceList();
+    this.EndRefresh();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
   },
 
   /**
