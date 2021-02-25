@@ -1,25 +1,5 @@
-// miniprogram/pages/liwei/login/login.js
+// miniprogram/pages/liwei/map.js
 Page({
-
-  /**
-   * 登录
-   */
-  Login: function () {
-    wx.navigateTo({
-      url: '../../index/index',
-    })
-  },
-
-  /**
-   * 微信登录
-   */
-  ThirdLogin: function () {
-    //navigateTo：保留当前页面，跳转到指定页面，左上角有返回按钮
-    //redirecTo：关闭当前页面，跳转到指定页面，左上角没有返回按钮
-    wx.navigateTo({
-      url: '../../liwei/gpsDevice/gpsDevice',
-    })
-  },
 
   /**
    * 页面的初始数据
@@ -32,7 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var mac = options.mac;
+    console.log('收到的设备的MAC地址：' + mac);
   },
 
   /**

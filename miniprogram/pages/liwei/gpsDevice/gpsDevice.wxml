@@ -1,10 +1,12 @@
 <!--miniprogram/pages/liwei/gpsDevice/gpsDevice.wxml-->
+<view class="item-title">
+  <label class="item-name2">名称</label>
+  <label class="item-name2">MAC地址</label>
+</view>
 <view class="cell-bg" wx:for="{{list_device}}" wx:key="index">
-
   <view class="list-item" bindtap="ItemClick" data-bean="{{item}}">
     <image class="img" src="../../../images/loc_icon.png" />
-    <view class="txt">{{item.name}}</view>
-    <view class="txt">{{item.mac}}</view>
+    <view class="txt1">{{item.name}}</view>
+    <view class="txt2">{{item.mac}}</view>
   </view>
-
 </view>

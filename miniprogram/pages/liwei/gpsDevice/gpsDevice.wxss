@@ -1,19 +1,30 @@
 /* miniprogram/pages/liwei/gpsDevice/gpsDevice.wxss */
 page {
   height: 100%;
+  width: 100%;
   background-color: whitesmoke;
   color: darkgrey;
+  font-size: 40rpx;
+}
+
+.item-title {
+  background-color: #A9A9A9;
+  text-align: center;
+  color: white;
+  text-align: center;
+}
+
+.item-title label {
+  margin: 100rpx;
 }
 
 .cell-bg {
   display: flex;
-  width: 100%;
   height: 110rpx;
   border-bottom: 1px solid white;
 }
 
 .list-item {
-  font-size: 35rpx;
   /*横向排列*/
   display: flex;
   flex-direction: row;
@@ -27,6 +38,28 @@ page {
   vertical-align: middle;
 }
 
-.txt {
+.txt1 {
   margin-left: 20rpx;
+  /*有固定的宽度，超出部分文字显示省略号*/
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /*没有固定的宽度，超出部分文字显示省略号
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;*/
+}
+
+.txt2 {
+  margin-left: 20rpx;
+  /*有固定的宽度，超出部分文字显示省略号*/
+  width: 380rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -65,7 +65,11 @@ Page({
    */
   ItemClick: function (options) {
     var $data = options.currentTarget.dataset;
-    console.log("MAC地址：" + $data.bean.mac);
+    var mac = $data.bean.mac;
+    console.log("MAC地址：" + mac);
+    wx.navigateTo({
+      url: '../../liwei/map/map?mac=' + mac,
+    })
   },
 
   /**

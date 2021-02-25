@@ -39,7 +39,7 @@ page {
   border-bottom: 1rpx solid white;
 }
 
-.login-btn {
+.btn-login {
   width: 100% !important;
   margin-top: 10%;
   background-color: white;
@@ -47,7 +47,7 @@ page {
   font-weight: normal;
 }
 
-.login-btn-third {
+.btn-login-third {
   width: 100% !important;
   background-color: green;
   color: white;
