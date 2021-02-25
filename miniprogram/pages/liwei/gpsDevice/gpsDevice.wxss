@@ -8,15 +8,17 @@ page {
 .cell-bg {
   display: flex;
   width: 100%;
-  height: 120rpx;
+  height: 110rpx;
   border-bottom: 1px solid white;
 }
 
-.left-view {
-  /*background-color: blue;*/
-  width: 150rpx;
-  text-align: center;
-  line-height: 120rpx;
+.list-item {
+  font-size: 35rpx;
+  /*横向排列*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20rpx;
 }
 
 .img {
@@ -25,37 +27,6 @@ page {
   vertical-align: middle;
 }
 
-.right-view {
-  /*background-color: red;*/
-  /*横向排列begin*/
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.text1 {
-  width: 140rpx;
-  text-align: center;
-  margin: 20rpx;
-  /*父元素display:flex+子元素align-self:center实现垂直距中*/
-  align-self: center;
-  font-size: 35rpx;
-}
-
-.text2 {
-  width: 200rpx;
-  text-align: center;
-  margin: 20rpx;
-  /*父元素display:flex+子元素align-self:center实现垂直距中*/
-  align-self: center;
-  font-size: 35rpx;
-}
-
-.text3 {
-  width: 200rpx;
-  text-align: center;
-  margin: 20rpx;
-  /*父元素display:flex+子元素align-self:center实现垂直距中*/
-  align-self: center;
-  font-size: 35rpx;
+.txt {
+  margin-left: 20rpx;
 }
