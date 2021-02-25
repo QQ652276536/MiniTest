@@ -6,6 +6,16 @@ Page({
   },
 
   /**
+   * item点击事件
+   * 
+   * @param {} options 
+   */
+  ItemClick: function (options) {
+    var $data = options.currentTarget.dataset;
+    console.log("MAC地址：" + $data.bean.mac);
+  },
+
+  /**
    * 查询设备列表
    */
   QueryDeviceList: function () {
