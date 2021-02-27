@@ -4,58 +4,58 @@ Page({
 
   data: {
     list_device: [
-      {
-        name: 'tex上t1',
-        mac: 'AA:BB:CC:DD:EE:FF'
-      },
-      {
-        name: '11门口1',
-        mac: '551030006334'
-      },
-      {
-        name: '3䏌33',
-        mac: '业余爱好零用'
-      },
-      {
-        name: '555二月份',
-        mac: '月报表后'
-      },
-      {
-        name: '777',
-        mac: 'wefwef使用者䏌3'
-      },
-      {
-        name: '999',
-        mac: 'awef23324二月份'
-      },
-      {
-        name: 'xx仴x',
-        mac: '零用34根'
-      },
-      {
-        name: 'te门口xt2',
-        mac: '促膝长谈'
-      },
-      {
-        name: 'text2',
-        mac: '使用过'
-      },
-      {
-        name: 'text3',
-        mac: ''
-      },
-      {
-        name: 'text3',
-        mac: '330.9'
-      },
-      {
-        name: 'text3',
-        mac: '330.9'
-      },
-      {
-        name: 'text3',
-        mac: '信用报告怕我遥入胉'
-      },
+      // {
+      //   name: 'tex上t1',
+      //   mac: 'AA:BB:CC:DD:EE:FF'
+      // },
+      // {
+      //   name: '11门口1',
+      //   mac: '551030006334'
+      // },
+      // {
+      //   name: '3䏌33',
+      //   mac: '业余爱好零用'
+      // },
+      // {
+      //   name: '555二月份',
+      //   mac: '月报表后'
+      // },
+      // {
+      //   name: '777',
+      //   mac: 'wefwef使用者䏌3'
+      // },
+      // {
+      //   name: '999',
+      //   mac: 'awef23324二月份'
+      // },
+      // {
+      //   name: 'xx仴x',
+      //   mac: '零用34根'
+      // },
+      // {
+      //   name: 'te门口xt2',
+      //   mac: '促膝长谈'
+      // },
+      // {
+      //   name: 'text2',
+      //   mac: '使用过'
+      // },
+      // {
+      //   name: 'text3',
+      //   mac: ''
+      // },
+      // {
+      //   name: 'text3',
+      //   mac: '330.9'
+      // },
+      // {
+      //   name: 'text3',
+      //   mac: '330.9'
+      // },
+      // {
+      //   name: 'text3',
+      //   mac: '信用报告怕我遥入胉'
+      // },
     ]
   },
 

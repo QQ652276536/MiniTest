@@ -10,10 +10,10 @@ Page({
    */
   data: {
     markers: [],
-    longitude: '',
-    latitude: '',
-    textData: {},
-    dome:false
+    lot: '',
+    lat: '',
+    txt: {},
+    update_flag: false
   },
 
   /**
@@ -27,9 +27,21 @@ Page({
         console.log('获取当前位置成功：', result);
 
         that.setData({
-          latitude: result.latitude,
-          longitude: result.longitude
+          lot: result.longitude,
+          lat: result.latitude
         })
+
+        //坐标反查
+        // _mapSdk.reverseGeocoder({
+        //   location: {
+        //     latitude: latitude,
+        //     longitude: longitude
+        //   },
+        //   success:function(result){
+        //     console.log("地理位置：",JSON.stringify(result));
+        //   },
+        // })
+
         var marker = [{
           longitude: result.longitude,
           latitude: result.latitude,
@@ -37,11 +49,11 @@ Page({
           //自定义气泡
           callout: {
             content: "你的位置\n......",
-            color: "#FFFFFF",
+            color: '#FFFFFF',
             fontSize: 14,
             borderRadius: 10,
             bgColor: "#FF0000",
-            textAlign: "center" ,
+            textAlign: "center",
             padding: 5,
             display: 'ALWAYS'
           }
@@ -50,8 +62,9 @@ Page({
         that.setData({
           markers: marker
         });
+
         that.setData({
-          dome: true
+          update_flag: true
         });
       },
       fail: (result) => {
