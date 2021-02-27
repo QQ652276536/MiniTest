@@ -2,6 +2,7 @@
 
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var _mapSdk;
+var _address = 'Undefined';
 
 Page({
 
@@ -13,7 +14,7 @@ Page({
     lot: '',
     lat: '',
     txt: {},
-    update_flag: false
+    update_flag: false,
   },
 
   /**
@@ -25,53 +26,54 @@ Page({
       type: 'gcj02',
       success: (result) => {
         console.log('获取当前位置成功：', result);
-
         that.setData({
           lot: result.longitude,
           lat: result.latitude
         })
-
         //坐标反查
-        // _mapSdk.reverseGeocoder({
-        //   location: {
-        //     latitude: latitude,
-        //     longitude: longitude
-        //   },
-        //   success:function(result){
-        //     console.log("地理位置：",JSON.stringify(result));
-        //   },
-        // })
-
-        var marker = [{
-          longitude: result.longitude,
-          latitude: result.latitude,
-          iconPath: "../../liwei/map/mark.png",
-          //自定义气泡
-          callout: {
-            content: "你的位置\n......",
-            color: '#FFFFFF',
-            fontSize: 14,
-            borderRadius: 10,
-            bgColor: "#FF0000",
-            textAlign: "center",
-            padding: 5,
-            display: 'ALWAYS'
+        _mapSdk.reverseGeocoder({
+          location: {
+            latitude: this.data.lat,
+            longitude: this.data.lot
+          },
+          //网络请求为异步操作，在请求执行完毕的回调中赋值
+          success: function (result) {
+            console.log('坐标反查成功：', result);
+            _address = result.result.address;
+            console.log('位置：', _address);
+            //地图标记
+            var marker = [{
+              longitude: that.data.lot,
+              latitude: that.data.lat,
+              iconPath: '../../liwei/map/mark.png',
+              //自定义气泡
+              callout: {
+                content: _address,
+                color: '#FFFFFF',
+                fontSize: 14,
+                borderRadius: 10,
+                bgColor: '#FF0000',
+                textAlign: 'center',
+                padding: 5,
+                //ALWAYS常显，BYCLICK点击显示
+                display: 'BYCLICK'
+              }
+            }]
+            that.setData({
+              markers: marker,
+              update_flag: true
+            });
+          },
+          fail: function (result) {
+            console.log('坐标反查失败：', result);
+            _address = 'Error';
           }
-        }]
-
-        that.setData({
-          markers: marker
-        });
-
-        that.setData({
-          update_flag: true
-        });
+        })
       },
       fail: (result) => {
         console.log('获取当前位置失败：', result);
       },
       complete: (result) => {
-
       }
     })
   },
