@@ -3,11 +3,15 @@
 
   <View class="title">李伟的微信小程序</View>
   <view class="login-box">
-    <label>用户名</label><input />
-    <label>密码</label><input />
-    <button class="btn-login" bindtap="Login">立即登录</button>
+    <form bindsubmit="Login">
+      <label>用户名</label>
+      <input type="email" maxlength="11" name="name"></input>
+      <label>密码</label>
+      <input type="password" maxlength="16" name="pwd"></input>
+      <button class="btn-login" form-type="submit">立即登录</button>
+    </form>
     <view class="login-line">第三方登录</view>
-    <button class="btn-login-third" bindtap="ThirdLogin">微信登录</button>
+    <button class="btn-login" bindtap="ThirdLogin">微信登录</button>
   </view>
 
 </view>

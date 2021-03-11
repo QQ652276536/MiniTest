@@ -1,13 +1,57 @@
 // miniprogram/pages/liwei/login/login.js
 
+var _that;
+
 Page({
 
   /**
    * 登录
    */
-  Login: function () {
-    wx.navigateTo({
-      url: '../../index/index',
+  Login: function (e) {
+    let name = e.detail.value.name;
+    let pwd = e.detail.value.pwd;
+    if (!name && !pwd) {
+      wx.showToast({
+        title: '用户名或密码错误',
+        icon: 'error',
+      })
+      return;
+    }
+    wx.showLoading({
+      title: '正在登录\n' + pwd,
+      //防止触摸穿透
+      mask: true,
+    })
+    wx.request({
+      url: 'http://101.132.102.203:8080/GPRS_Web/User/Login',
+      data: {
+      },
+      header: { 'content-type': 'application/json' },
+      method: 'POST',
+      timeout: 10 * 1000,
+      success: (result) => {
+        wx.hideLoading({
+          success: (res) => {
+          },
+        });
+        wx.navigateTo({
+          url: '../../liwei/gpsDevice/gpsDevice',
+        });
+        console.log("result：", result);
+      },
+      fail: (result) => {
+        wx.hideLoading({
+          success: (res) => {
+            wx.showToast({
+              title: '请与管理员联系',
+              icon: 'error',
+            })
+          },
+        })
+      },
+      complete: (result) => {
+
+      },
     })
   },
 
@@ -26,14 +70,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    _that = this;
   },
 
   /**

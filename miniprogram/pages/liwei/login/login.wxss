@@ -5,6 +5,16 @@ page {
   background-color: whitesmoke;
 }
 
+label {
+  color: white;
+}
+
+input {
+  color: green;
+  margin: 5% 0 8% 0;
+  border-bottom: 1rpx solid white;
+}
+
 .login-container {
   padding: 0 10%;
   height: 100%;
@@ -24,31 +34,15 @@ page {
   border-radius: 5px;
 }
 
-.login-box>label {
-  color: white;
-}
-
 .login-line {
   margin: 10%;
   text-align: center;
   color: white;
 }
 
-.login-box>input {
-  margin: 5% 0 8% 0;
-  border-bottom: 1rpx solid white;
-}
-
 .btn-login {
   width: 100% !important;
   margin-top: 10%;
-  background-color: white;
-  color: darkgray;
-  font-weight: normal;
-}
-
-.btn-login-third {
-  width: 100% !important;
   background-color: green;
   color: white;
   font-weight: normal;

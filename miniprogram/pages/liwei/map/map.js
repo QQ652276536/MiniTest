@@ -27,13 +27,13 @@ Page({
   QueryHistoryLocation() {
     wx.request({
       url: 'http://101.132.102.203:8080/GPRS_Web/Location/FindByMac',
+      data: {
+        mac: _mac,
+      },
       // header: { 'content-type': 'application/json' },
       //携带参数需要改成如下方式，原因暂时没研究
       header: { 'content-type': 'application/x-www-form-urlencoded' },
       method: 'POST',
-      data: {
-        mac: _mac,
-      },
       timeout: 10 * 1000,
       success: (result) => {
         console.log('查询历史位置记录成功：', result);
