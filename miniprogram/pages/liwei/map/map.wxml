@@ -1,3 +1,4 @@
 <!--miniprogram/pages/liwei/map.wxml-->
-<map class="map" longitude="{{lot}}" latitude="{{lat}}" scale="15" markers="{{markers}}" wx:if="{{update_flag}}">
+<map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}" wx:if="{{update_flag}}"
+  polyline="{{polyline}}">
 </map>
