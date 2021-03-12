@@ -18,26 +18,37 @@ Page({
       return;
     }
     wx.showLoading({
-      title: '正在登录\n' + pwd,
+      title: '正在登录',
       //防止触摸穿透
       mask: true,
     })
     wx.request({
       url: 'http://101.132.102.203:8080/GPRS_Web/User/Login',
-      data: {
-      },
+      data: { userName: name, password: pwd },
       header: { 'content-type': 'application/json' },
       method: 'POST',
       timeout: 10 * 1000,
       success: (result) => {
+        //隐藏耗时框
         wx.hideLoading({
           success: (res) => {
           },
         });
+        console.log(result);
+        let userId = result.data.userId;
+        let phone = result.data.phoneNumber;
+        console.log('用户ID：', userId, '，注册手机：', phone);
+        if (typeof (userId) == 'undefined' || typeof (phone) == 'undefined') {
+          wx.showToast({
+            title: '用户名或密码错误',
+            icon: 'error',
+          })
+          return;
+        }
+        //跳转
         wx.navigateTo({
           url: '../../liwei/gpsDevice/gpsDevice',
         });
-        console.log("result：", result);
       },
       fail: (result) => {
         wx.hideLoading({
