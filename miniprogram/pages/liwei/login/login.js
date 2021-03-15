@@ -23,7 +23,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: 'http://101.132.102.203:8080/GPRS_Web/User/Login',
+      url: 'http://129.204.165.206:8080/GPRS_Web/User/Login',
       data: { userName: name, password: pwd },
       header: { 'content-type': 'application/json' },
       method: 'POST',

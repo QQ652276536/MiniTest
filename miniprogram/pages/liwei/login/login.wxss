@@ -21,7 +21,8 @@ input {
 }
 
 .title {
-  font-size: large;
+  font-weight: bold;
+  font-size: 26px;
   text-align: center;
   padding-top: 10%;
   color: darkgray;

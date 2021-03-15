@@ -1,11 +1,15 @@
 // miniprogram/pages/liwei/map.js
 
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+var DATE = new Date();
+
 var _mapSdk;
 var _address = 'Undefined';
 var _that;
 var _points = [];
 var _mac;
+var _startDate = DATE.getFullYear() + '-' + (DATE.getMonth() + 1) + '-' + DATE.getDate();
+var _endDate = DATE.getFullYear() + '-' + (DATE.getMonth() + 1) + '-' + DATE.getDate();
 
 Page({
 
@@ -19,14 +23,38 @@ Page({
     txt: {},
     update_flag: false,
     polyline: [],
+    startDate: _startDate,
+    endDate: _endDate,
+  },
+
+  BindDateChange: function (e) {
+    var id = e.target.id;
+    switch (id) {
+      case 'startDate':
+        _startDate = e.detail.value;
+        break;
+      case 'endDate':
+        _endDate = e.detail.value;
+        break;
+    }
+    _that.setData({
+      startDate: _startDate,
+      endDate: _endDate,
+    })
+    console.log('起始日期：', _startDate, '结束日期：', _endDate);
   },
 
   /**
    * 查询历史位置记录
    */
   QueryHistoryLocation() {
+    wx.showLoading({
+      title: '正在查询',
+      //防止触摸穿透
+      mask: true,
+    })
     wx.request({
-      url: 'http://101.132.102.203:8080/GPRS_Web/Location/FindByMac',
+      url: 'http://129.204.165.206:8080/GPRS_Web/Location/FindByMac',
       data: {
         mac: _mac,
       },
@@ -38,11 +66,19 @@ Page({
       success: (result) => {
         console.log('查询历史位置记录成功：', result);
         let len = result.data.length;
+        console.log('轨迹记录数：', len);
         if (len == 0) {
+          wx.showToast({
+            title: '该设备无数据',
+            icon: 'error',
+          })
           return;
         }
-        console.log('轨迹记录数：', len);
         for (let i = 0; i < len; i++) {
+          if (result.data[i].lat > 90 || result.data[i].lat < -90) {
+            console.log('latitude字段值有误：', result.data[i].lat);
+            continue;
+          }
           _points.push({
             latitude: result.data[i].lat,
             longitude: result.data[i].lot,
@@ -59,8 +95,15 @@ Page({
           }],
           update_flag: true,
         })
+        wx.hideLoading({
+          success: (res) => { },
+        })
       },
       fail: (result) => {
+        wx.showToast({
+          title: '请与管理员联系',
+          icon: 'error',
+        })
       },
       complete: (result) => {
       },
@@ -71,6 +114,11 @@ Page({
    * 获取当前位置
    */
   QueryCurrentLocation() {
+    wx.showLoading({
+      title: '正在查询',
+      //防止触摸穿透
+      mask: true,
+    })
     wx.getLocation({
       type: 'gcj02',
       success: (result) => {
@@ -94,7 +142,7 @@ Page({
             var marker = [{
               longitude: _that.data.longitude,
               latitude: _that.data.latitude,
-              iconPath: '../../liwei/map/mark.png',
+              iconPath: '../../../images/mark.png',
               //自定义气泡
               callout: {
                 content: _address,
@@ -123,7 +171,10 @@ Page({
         console.log('获取当前位置失败：', result);
       },
       complete: (result) => {
-      }
+        wx.hideLoading({
+          success: (res) => { },
+        })
+      },
     })
   },
 

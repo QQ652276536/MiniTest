@@ -1,4 +1,17 @@
 <!--miniprogram/pages/liwei/map.wxml-->
-<map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}" wx:if="{{update_flag}}"
-  polyline="{{polyline}}">
+<map class="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="15" markers="{{markers}}"
+  wx:if="{{update_flag}}" polyline="{{polyline}}">
 </map>
+<view class="date">
+  <picker class="picker" mode="date" value="{{startDate}}" bindchange="BindDateChange" id="startDate">
+    <view>
+      起始: {{startDate}}
+    </view>
+  </picker>
+  <picker class="picker" mode="date" value="{{endDate}}" bindchange="BindDateChange" id="endDate">
+    <view>
+      结束: {{endDate}}
+    </view>
+  </picker>
+</view>
+<button class="btn-query" bindchange="QueryHistoryLocation">确定</button>

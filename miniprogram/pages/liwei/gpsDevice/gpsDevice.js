@@ -78,7 +78,7 @@ Page({
    */
   QueryDeviceList() {
     wx.request({
-      url: 'http://101.132.102.203:8080/GPRS_Web/Device/FindAll',
+      url: 'http://129.204.165.206:8080/GPRS_Web/Device/FindAll',
       header: { 'content-type': 'application/json' },
       method: 'POST',
       timeout: 10 * 1000,

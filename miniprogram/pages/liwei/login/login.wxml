@@ -1,15 +1,13 @@
 <!--miniprogram/pages/liwei/login/login.wxml-->
 <view class="login-container">
-
-  <View class="title">李伟的微信小程序</View>
-  <view class="login-box">
-    <form bindsubmit="Login">
-      <label>用户名</label>
-      <input type="email" maxlength="11" name="name"></input>
-      <label>密码</label>
-      <input type="password" maxlength="16" name="pwd"></input>
-      <button class="btn-login" form-type="submit">立即登录</button>
-    </form>
-  </view>
-
+    <View class="title">北斗云迹</View>
+    <view class="login-box">
+      <form bindsubmit="Login">
+        <label>用户名</label>
+        <input type="email" maxlength="11" name="name"></input>
+        <label>密码</label>
+        <input type="password" maxlength="16" name="pwd"></input>
+        <button class="btn-login" form-type="submit">立即登录</button>
+      </form>
+    </view>
 </view>
